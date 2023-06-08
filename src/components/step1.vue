@@ -3,16 +3,17 @@ import * as THREE from "three"
 //scene在three里设置configruate为false，
 //而vue3监听用到的poxry必须要将configrate设置为true，所以此参数不能放在data里
 //切scene.add方法内参数必须通过toRaw进行转化
-import {toRaw} from "@vue/reactivity"
+
+import { toRaw } from "@vue/reactivity"
 const scene = new THREE.Scene();
 export default {
   data() {
     return {
-      camera:{} as any,
-      renderer:{} as any,
-      geometry:{} as any,
-      material:{} as any,
-      cube:{} as any
+      camera: {} as any,
+      renderer: {} as any,
+      geometry: {} as any,
+      material: {} as any,
+      cube: {} as any,
     }
   },
   methods: {
@@ -26,13 +27,13 @@ export default {
       this.cube = new THREE.Mesh(this.geometry, this.material);
       scene.add(toRaw(this.cube));
       this.camera.position.z = 5;
-      this.animate()
+      this.animate();
     },
-    animate(){
+    animate() {
       requestAnimationFrame(this.animate);
       this.cube.rotation.x += 0.01;
       this.cube.rotation.y += 0.01;
-      this.renderer.render(scene,this.camera)
+      this.renderer.render(scene, this.camera)
     }
   },
   created() {
@@ -43,9 +44,6 @@ export default {
   }
 };
 </script>
-<template>
- 
-</template>
+<template></template>
 
-<style scoped>
-</style>
+<style scoped></style>
